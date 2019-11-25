@@ -33,6 +33,7 @@ int main()
 			cin.ignore();
 			
 			myAlbums.readFile(fileInput);
+			system("pause");
 		};
 
 		//Add
@@ -46,7 +47,7 @@ int main()
 				cin >> response1;
 			} while (response1 == 'y' || response1 == 'Y');
 			
-
+			system("pause");
 		}
 
 		//Show
@@ -55,6 +56,8 @@ int main()
 			//Show
 			//Calling on the showList function
 			myAlbums.showList();
+
+			system("pause");
 		};
 
 		//Save
@@ -66,6 +69,8 @@ int main()
 			getline(cin, fileInput);
 			cin.ignore();
 			myAlbums.saveToFile(fileInput);
+
+			system("pause");
 		};
 
 		//Exit

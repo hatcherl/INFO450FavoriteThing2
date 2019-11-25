@@ -97,6 +97,10 @@ void favoriteList::showList()
 
 int favoriteList::readFile(string filename)
 {
+	//I'd like to note right here that I used .c_string() because the string type doesn't have a null character at the end
+	//Which gives me an error. .cstring() will return it with a null-termination. 
+	//I don't understand this 100% but I do know it's because if I try to pass without .cstring, it'll give erros b/c
+	//of the null.
 	ifstream inputFile;
 	inputFile.open(filename.c_str());
 	if (!inputFile)
@@ -150,6 +154,7 @@ int favoriteList::saveToFile(string filename)
 
 	ofstream outputFile;
 	outputFile.open(filename.c_str());
+	
 	if (!outputFile)
 	{
 		cout << "ERROR - file open failed!" << endl;
