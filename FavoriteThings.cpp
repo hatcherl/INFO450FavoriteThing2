@@ -95,6 +95,6 @@ void favoriteThings::setAlbumInfo()
 
 ostream& operator<<(ostream& output, favoriteThings& i)
 {
-	output << "Album: " << endl << "ID: " << i.id << "| " << i.title << " " << "by " << i.artist << " " << "released in " << i.year << " " << "genre: " << i.genre << endl;
+	output << "ID: " << i.id << "| " << i.title << " " << "by " << i.artist << " " << "released in " << i.year << " " << "Genre: " << i.genre << endl;
 	return output;
 }

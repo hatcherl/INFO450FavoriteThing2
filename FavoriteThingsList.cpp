@@ -100,9 +100,9 @@ int favoriteList::readFile(string filename)
 	//I'd like to note right here that I used .c_string() because the string type doesn't have a null character at the end
 	//Which gives me an error. .cstring() will return it with a null-termination. 
 	//I don't understand this 100% but I do know it's because if I try to pass without .cstring, it'll give erros b/c
-	//of the null.
+	//of the lack of null.
 	ifstream inputFile;
-	inputFile.open(filename.c_str());
+	inputFile.open(filename.c_str(), ios::in);
 	if (!inputFile)
 	{
 		cout << "File couldn't be Read!" << endl;
@@ -129,12 +129,9 @@ int favoriteList::readFile(string filename)
 			getline(inputFile, Tempartist, '|');
 			getline(inputFile, inputstring, '|');
 			Tempyear = stoi(inputstring);
-			getline(inputFile, Tempgenre, '|');
-			getline(inputFile, inputstring, '\n');
-
+			getline(inputFile, Tempgenre, '\n');
 
 			//Adding Data to objects/Albums from list
-
 			albums[numAlbums].setID(Tempid);
 			albums[numAlbums].setTitle(Temptitle);
 			albums[numAlbums].setArtist(Tempartist);
@@ -153,7 +150,7 @@ int favoriteList::saveToFile(string filename)
 	int i;
 
 	ofstream outputFile;
-	outputFile.open(filename.c_str());
+	outputFile.open(filename.c_str(), ios::app);
 	
 	if (!outputFile)
 	{
@@ -167,7 +164,7 @@ int favoriteList::saveToFile(string filename)
 		outputFile << albums[i].getTitle() << "|";
 		outputFile << albums[i].getArtist() << "|";
 		outputFile << albums[i].getYear() << "|";
-		outputFile << albums[i].getGenre() << endl;
+		outputFile << albums[i].getGenre() << "|" << endl;
 	}
 	outputFile.close();
 	return 0;

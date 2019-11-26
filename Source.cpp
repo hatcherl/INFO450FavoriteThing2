@@ -26,12 +26,11 @@ int main()
 		if (response == 'A' || response == 'a') //Read
 		{
 			//Read
-			//Current Error in trying to read... Although its from reading manually inputed data in a text file
+			//Current Error in trying to read...Won't read beyond the 2nd entry's ID#
 			cout << "Enter file path" << endl;
 			string fileInput;
 			getline(cin, fileInput);
 			cin.ignore();
-			
 			myAlbums.readFile(fileInput);
 			system("pause");
 		};
